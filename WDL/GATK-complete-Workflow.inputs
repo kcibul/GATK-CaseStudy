@@ -1,0 +1,37 @@
+{
+  
+  "GATK_complete_Workflow.reads": [
+      "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/FQ_1.fastq",
+      "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/FQ_2.fastq"      
+   ],
+
+  "GATK_complete_Workflow.ref_fasta": "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta",
+  "GATK_complete_Workflow.ref_fasta_index": "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta.fai",
+  
+  "GATK_complete_Workflow.Picard_CreateSequenceDictionary.output_filename": "hg19.dict",  
+  
+  "GATK_complete_Workflow.BWA_mem.ref_sa":  "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta.sa",
+  "GATK_complete_Workflow.BWA_mem.ref_amb": "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta.amb",
+  "GATK_complete_Workflow.BWA_mem.ref_bwt": "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta.bwt",
+  "GATK_complete_Workflow.BWA_mem.ref_ann": "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta.ann",
+  "GATK_complete_Workflow.BWA_mem.ref_pac": "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/hg19.fasta.pac",
+  
+  "GATK_complete_Workflow.BWA_mem.rg": "@RG\\tID:chr21\\tPL:ILLUMINA\\tLB:L001\\tSM:chr21",
+
+  "GATK_complete_Workflow.interval" : "chr21",
+
+  "GATK_complete_Workflow.known_variants" : [
+    "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/dbsnp_138.vcf",
+    "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/Mills_and_1000G_gold_st.vcf",
+    "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/1000G_phase1.indels.hg19.vcf"  
+  ],
+
+  "GATK_complete_Workflow.known_variants_indexes" : [
+    "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/dbsnp_138.vcf.idx",
+    "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/Mills_and_1000G_gold_st.vcf.idx",
+    "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/1000G_phase1.indels.hg19.vcf.idx"  
+  ],
+  
+  "GATK_complete_Workflow.dbsnp_vcf" : "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/dbsnp_138.vcf",
+  "GATK_complete_Workflow.dbsnp_vcf_index" : "/Users/kcibul/projects/GATK-CaseStudy/Data/dl2/dbsnp_138.vcf.idx"
+}
