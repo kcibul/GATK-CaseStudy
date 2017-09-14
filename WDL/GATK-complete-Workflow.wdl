@@ -9,10 +9,10 @@ task Picard_CreateSequenceDictionary {
     OUTPUT=${output_filename}
   }
   output {
-    File ref_dict = "${output_filename}"
+    File ref_dict = output_filename
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }
 }
 
@@ -31,11 +31,11 @@ task BWA_mem {
     bwa mem -v 3 -R '${rg}' -t 1 ${ref_fasta} ${sep=' ' reads} > ${output_sam_name}
   }
   output {
-    File output_sam = "${output_sam_name}"
+    File output_sam = output_sam_name
   }
   
   runtime {
-    docker: "scidap/bwa:v0.7.12@sha256:d97876d581b15992da1c5485e30ccc9d3a47f9849251fb825b0fecee8b3326e6"
+    docker: "scidap/bwa:v0.7.12"
   }
   
 }
@@ -48,10 +48,10 @@ task samtools_view {
     samtools view -Sb ${input_sam} > ${output_filename}
   } 
   output {
-    File output_bam = "${output_filename}"
+    File output_bam = output_filename
   }
   runtime {
-    docker: "isaacliao/samtools-0.1.19@sha256:578e524232bee52845ab872c65cd69d5873487bde3b943d141ad18b8a488c86b"
+    docker: "isaacliao/samtools-0.1.19"
   }
 }
 
@@ -63,10 +63,10 @@ task samtools_sort {
     samtools sort -f ${input_bam} ${output_filename}
   } 
   output {
-    File output_bam = "${output_filename}"
+    File output_bam = output_filename
   }
   runtime {
-    docker: "isaacliao/samtools-0.1.19@sha256:578e524232bee52845ab872c65cd69d5873487bde3b943d141ad18b8a488c86b"
+    docker: "isaacliao/samtools-0.1.19"
   }
 }
 
@@ -87,12 +87,12 @@ task Picard_MarkDuplicates {
     CREATE_INDEX=true
   }
   output {
-    File metrics = "${metrics_filename}"
-    File output_bam = "${output_filename}"
-    File output_bam_index = "${output_index_filename}"
+    File metrics = metrics_filename
+    File output_bam = output_filename
+    File output_bam_index = output_index_filename
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }
 }
 
@@ -121,10 +121,10 @@ task GATK_RealignerTargetCreator {
     -o ${output_filename}
   }
   output {
-    File output_intervals = "${output_filename}"
+    File output_intervals = output_filename
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }
 }
 
@@ -156,11 +156,11 @@ task GATK_IndelRealigner {
     -o ${output_bam_filename}
   }
   output {
-    File output_bam = "${output_bam_filename}"
-    File output_bam_index = "${output_bam_filename_index}"
+    File output_bam = output_bam_filename
+    File output_bam_index = output_bam_filename_index
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }  
 }
 
@@ -190,10 +190,10 @@ task GATK_BaseRecalibrator {
     -o ${output_filename}
   }
   output {
-    File output_bqsr_table = "${output_filename}"
+    File output_bqsr_table = output_filename
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }
 }
 
@@ -220,11 +220,11 @@ task GATK_PrintReads {
     -o ${output_bam_filename}
   }
   output {
-    File output_bam = "${output_bam_filename}"
-    File output_bam_index = "${output_bam_filename_index}"
+    File output_bam = output_bam_filename
+    File output_bam_index = output_bam_filename_index
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }  
 }
 
@@ -253,10 +253,10 @@ task GATK_HaplotypeCaller {
     -o ${output_gvcf_filename}
   }
   output {
-    File output_gvcf = "${output_gvcf_filename}"
+    File output_gvcf = output_gvcf_filename
   }
   runtime {
-    docker: "fzkhan/picard-1.136-gatk-2.8@sha256:9fc570b6499ccad7e52173cb493f868e267eb305a8e90401a5ab89a5fa27a34a"
+    docker: "fzkhan/picard-1.136-gatk-2.8"
   }  
 }
 workflow GATK_complete_Workflow {
@@ -363,7 +363,7 @@ workflow GATK_complete_Workflow {
       interval = interval,
       dbsnp_vcf = dbsnp_vcf,
       dbsnp_vcf_index = dbsnp_vcf_index,      
-      output_gvcf_filename = "${basename}.g.vcf.gz",
+      output_gvcf_filename = "${basename}.g.vcf",
   }
   
   output {
